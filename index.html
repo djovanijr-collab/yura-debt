@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Учёт — Юра</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 24px 20px 20px;
+    text-align: center;
+  }
+  header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+  header p { font-size: 13px; opacity: 0.6; margin-top: 6px; }
+  
+  .debt-card {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    margin: 20px 16px;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(231,76,60,0.3);
+  }
+  .debt-card .label { font-size: 13px; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; }
+  .debt-card .amount { font-size: 38px; font-weight: 800; margin-top: 8px; }
+  .debt-card .sub { font-size: 12px; opacity: 0.7; margin-top: 6px; }
+
+  .table-wrap {
+    margin: 0 16px 24px;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  }
+  .table-title {
+    padding: 16px 20px 12px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  th {
+    background: #f8f9fa;
+    padding: 10px 14px;
+    text-align: right;
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  th:first-child { text-align: left; }
+  td {
+    padding: 12px 14px;
+    text-align: right;
+    border-bottom: 1px solid #f7f7f7;
+    color: #333;
+  }
+  td:first-child { text-align: left; font-size: 13px; color: #666; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafafa; }
+  
+  .sale { color: #2c3e50; font-weight: 600; }
+  .card-pos { color: #27ae60; font-weight: 600; }
+  .card-zero { color: #ccc; }
+  .debt-pos { color: #e74c3c; font-weight: 700; }
+  .debt-neg { color: #27ae60; font-weight: 700; }
+  
+  .footer {
+    text-align: center;
+    padding: 16px;
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  @media (max-width: 480px) {
+    .debt-card .amount { font-size: 30px; }
+    th, td { padding: 10px 10px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Взаиморасчёты</h1>
+  <p>Обновлено: 16.06.2026 21:33</p>
+</header>
+
+<div class="debt-card">
+  <div class="label">Текущий долг</div>
+  <div class="amount">1,345,718 ₽</div>
+  <div class="sub">по состоянию на 16 июн 2026</div>
+</div>
+
+<div class="table-wrap">
+  <div class="table-title">История операций 2026</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Дата</th>
+        <th>Продажа</th>
+        <th>Приход</th>
+        <th>Долг</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>16 июн 2026</td><td><span class="sale">89,550 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,345,718 ₽</span></td></tr>
+      <tr><td>15 июн 2026</td><td><span class="card-zero">—</span></td><td><span class="card-pos">105,100 ₽</span></td><td><span class="debt-pos">1,256,168 ₽</span></td></tr>
+      <tr><td>10 июн 2026</td><td><span class="sale">9,400 ₽</span></td><td><span class="card-pos">29,000 ₽</span></td><td><span class="debt-pos">1,361,268 ₽</span></td></tr>
+      <tr><td>09 июн 2026</td><td><span class="sale">119,700 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,380,868 ₽</span></td></tr>
+      <tr><td>07 июн 2026</td><td><span class="card-zero">—</span></td><td><span class="card-pos">12,600 ₽</span></td><td><span class="debt-pos">1,261,168 ₽</span></td></tr>
+      <tr><td>04 июн 2026</td><td><span class="sale">12,600 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,273,768 ₽</span></td></tr>
+      <tr><td>01 июн 2026</td><td><span class="card-zero">—</span></td><td><span class="card-pos">34,800 ₽</span></td><td><span class="debt-pos">1,261,168 ₽</span></td></tr>
+      <tr><td>31 май 2026</td><td><span class="card-zero">—</span></td><td><span class="card-pos">6,700 ₽</span></td><td><span class="debt-pos">1,295,968 ₽</span></td></tr>
+      <tr><td>30 май 2026</td><td><span class="card-zero">—</span></td><td><span class="card-pos">20,000 ₽</span></td><td><span class="debt-pos">1,302,668 ₽</span></td></tr>
+      <tr><td>29 май 2026</td><td><span class="card-zero">—</span></td><td><span class="card-pos">46,362 ₽</span></td><td><span class="debt-pos">1,322,668 ₽</span></td></tr>
+      <tr><td>28 май 2026</td><td><span class="sale">22,500 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,369,030 ₽</span></td></tr>
+      <tr><td>27 май 2026</td><td><span class="sale">38,700 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,346,530 ₽</span></td></tr>
+      <tr><td>25 май 2026</td><td><span class="sale">40,500 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,307,830 ₽</span></td></tr>
+      <tr><td>20 май 2026</td><td><span class="sale">76,950 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,267,330 ₽</span></td></tr>
+      <tr><td>18 май 2026</td><td><span class="sale">10,800 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,190,380 ₽</span></td></tr>
+      <tr><td>13 май 2026</td><td><span class="sale">36,900 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,179,580 ₽</span></td></tr>
+      <tr><td>12 май 2026</td><td><span class="sale">47,700 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,142,680 ₽</span></td></tr>
+      <tr><td>07 май 2026</td><td><span class="sale">26,100 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,094,980 ₽</span></td></tr>
+      <tr><td>06 май 2026</td><td><span class="sale">33,300 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,068,880 ₽</span></td></tr>
+      <tr><td>05 май 2026</td><td><span class="sale">39,400 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">1,035,580 ₽</span></td></tr>
+      <tr><td>04 май 2026</td><td><span class="sale">36,900 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">996,180 ₽</span></td></tr>
+      <tr><td>02 май 2026</td><td><span class="sale">31,320 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">959,280 ₽</span></td></tr>
+      <tr><td>01 май 2026</td><td><span class="sale">5,400 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">927,960 ₽</span></td></tr>
+      <tr><td>27 апр 2026</td><td><span class="sale">40,000 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">922,560 ₽</span></td></tr>
+      <tr><td>23 апр 2026</td><td><span class="sale">24,300 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">882,560 ₽</span></td></tr>
+      <tr><td>21 апр 2026</td><td><span class="sale">9,900 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">858,260 ₽</span></td></tr>
+      <tr><td>14 апр 2026</td><td><span class="sale">50,400 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">848,360 ₽</span></td></tr>
+      <tr><td>08 апр 2026</td><td><span class="sale">26,100 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">797,960 ₽</span></td></tr>
+      <tr><td>07 апр 2026</td><td><span class="sale">21,400 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">771,860 ₽</span></td></tr>
+      <tr><td>03 апр 2026</td><td><span class="sale">16,450 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">750,460 ₽</span></td></tr>
+      <tr><td>02 апр 2026</td><td><span class="sale">34,200 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">734,010 ₽</span></td></tr>
+      <tr><td>31 мар 2026</td><td><span class="sale">63,900 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">699,810 ₽</span></td></tr>
+      <tr><td>24 мар 2026</td><td><span class="sale">5,400 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">635,910 ₽</span></td></tr>
+      <tr><td>18 мар 2026</td><td><span class="sale">21,150 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">630,510 ₽</span></td></tr>
+      <tr><td>17 мар 2026</td><td><span class="sale">42,890 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">609,360 ₽</span></td></tr>
+      <tr><td>10 мар 2026</td><td><span class="sale">25,200 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">566,470 ₽</span></td></tr>
+      <tr><td>04 мар 2026</td><td><span class="sale">33,750 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">541,270 ₽</span></td></tr>
+      <tr><td>19 фев 2026</td><td><span class="sale">12,600 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">507,520 ₽</span></td></tr>
+      <tr><td>18 фев 2026</td><td><span class="sale">8,100 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">494,920 ₽</span></td></tr>
+      <tr><td>16 фев 2026</td><td><span class="sale">37,800 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">486,820 ₽</span></td></tr>
+      <tr><td>13 фев 2026</td><td><span class="sale">13,950 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">449,020 ₽</span></td></tr>
+      <tr><td>12 фев 2026</td><td><span class="sale">29,800 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">435,070 ₽</span></td></tr>
+      <tr><td>11 фев 2026</td><td><span class="sale">4,500 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">405,270 ₽</span></td></tr>
+      <tr><td>10 фев 2026</td><td><span class="sale">33,300 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">400,770 ₽</span></td></tr>
+      <tr><td>02 фев 2026</td><td><span class="sale">5,400 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">367,470 ₽</span></td></tr>
+      <tr><td>29 янв 2026</td><td><span class="sale">21,600 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">362,070 ₽</span></td></tr>
+      <tr><td>28 янв 2026</td><td><span class="sale">35,550 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">340,470 ₽</span></td></tr>
+      <tr><td>21 янв 2026</td><td><span class="sale">54,720 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">304,920 ₽</span></td></tr>
+      <tr><td>19 янв 2026</td><td><span class="sale">8,100 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">250,200 ₽</span></td></tr>
+      <tr><td>16 янв 2026</td><td><span class="sale">26,100 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">242,100 ₽</span></td></tr>
+      <tr><td>12 янв 2026</td><td><span class="sale">53,820 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">216,000 ₽</span></td></tr>
+      <tr><td>09 янв 2026</td><td><span class="sale">85,680 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">162,180 ₽</span></td></tr>
+      <tr><td>08 янв 2026</td><td><span class="sale">12,600 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">76,500 ₽</span></td></tr>
+      <tr><td>06 янв 2026</td><td><span class="sale">63,900 ₽</span></td><td><span class="card-zero">—</span></td><td><span class="debt-pos">63,900 ₽</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  Данные из системы Тирика · 16.06.2026 21:33
+</div>
+
+</body>
+</html>
